@@ -17,19 +17,13 @@ app:
     operation: ALL
     filePath: ""
 
-  # Session management for authenticated testing
-  sessionManagement:
-    sessionTokenPath:
-      - "$.token"
-      - "$.data.token"
-      - "$.data.access_token"
-
-  # Authentication configuration
+  # Authentication and session management configuration
   authentication:
     sessionManagement:
       sessionTokenPath:
         - "$.token"
         - "$.data.token"
+        - "$.data.access_token"
 
 # Security testing configuration
 hawk:
