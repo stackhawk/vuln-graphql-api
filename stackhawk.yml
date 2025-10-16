@@ -3,6 +3,7 @@ app:
   env: Development
   host: http://localhost:3000
 
+  # GraphQL Configuration for comprehensive testing
   graphqlConf:
     enabled: true
     schemaPath: /graphql
@@ -15,5 +16,35 @@ app:
     batchQueries: false
     operation: ALL
     filePath: ""
+
+  # Session management for authenticated testing
+  sessionManagement:
+    sessionTokenPath:
+      - "$.token"
+      - "$.data.token"
+      - "$.data.access_token"
+
+  # Authentication configuration
+  authentication:
+    sessionManagement:
+      sessionTokenPath:
+        - "$.token"
+        - "$.data.token"
+
+# Security testing configuration
 hawk:
+  # Set failure threshold to high for security-focused scanning
   failureThreshold: high
+  
+  # Enable comprehensive spider configuration
+  spider:
+    maxDuration: 10
+    
+  # Enable additional security testing rules
+  policy:
+    - passive-scan-rules
+    - active-scan-rules
+    - injection-rules
+    - xss-rules
+    - authentication-rules
+    - authorization-rules
