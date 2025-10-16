@@ -3,3 +3,7 @@ build/
 node_modules/
 .idea/
 *.iml
+
+# StackHawk scan results
+hawkscan-results.json
+*.hawk
